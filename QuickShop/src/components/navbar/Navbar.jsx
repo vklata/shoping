@@ -115,7 +115,7 @@ navigate("/login")
         </ul>
     )
     return (
-        <nav className="bg-blue-700 sticky top-0">
+        <nav className="bg-gray-700 sticky top-0">
             {/* main  */}
             <div className="lg:flex lg:justify-between items-center py-3 lg:px-3 ">
                 {/* left  */}

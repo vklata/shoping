@@ -40,7 +40,7 @@ const AdminDashboard = () => {
                 <div className="list-group  list-group-item-action top mb-5 px-5 mt-5">
   <Link to="/create-category" className="list-group-item list-group-item-action text-center text-2xl font-bold text-blue-500">Create Category</Link>
   <Link  to="/create-product" className="list-group-item list-group-item-action text-center text-2xl font-bold text-pink-500">Create Product</Link>
-  <Link to="/users" className="list-group-item list-group-item-action text-center text-2xl font-bold text-yellow-500">Users</Link>
+  
 </div>
             </div>
         </div>
