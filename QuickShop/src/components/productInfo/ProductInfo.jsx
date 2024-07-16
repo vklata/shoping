@@ -48,7 +48,7 @@ const ProductInfo = () => {
                                 <div className="">
                                     <img
                                         className=" w-full lg:h-[39em] rounded-lg"
-                                        src={`http://localhost:3000/api/product-photo/${product._id}`}
+                                        src={`https://back-o58i.vercel.app/api/product-photo/${product._id}`}
                                         // alt={product.name}
                                     />
                                 </div>
