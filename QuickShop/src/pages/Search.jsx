@@ -17,32 +17,8 @@ const Search = () => {
               ? "No Products Found"
               : `Found ${values?.results.length}`}
           </h6>
-          {/* <div className="d-flex flex-wrap mt-4">
-            {values?.results.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }}>
-                <img
-                  src={`http://localhost:3000/api/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
-                    {p.description.substring(0, 30)}...
-                  </p>
-                  <p className="card-text"> $ {p.price}</p>
-                  <button class="btn btn-primary ms-1">More Details</button>
-
-
-
-
-
-
-                  <button class="btn btn-secondary ms-1">ADD TO CART</button>
-                </div>
-              </div>
-            ))}
-          </div> */}
+         
+            
           <section className="text-gray-600 body-font">
                     <div className="container px-5 lg:px-0 py-5 mx-auto">
                         <div className="flex flex-wrap -m-4" >
@@ -57,7 +33,7 @@ const Search = () => {
                                                 className="lg:h-60  h-96 w-full"
                                             //     src={image}
                                             //     alt="blog"
-                                            src={`http://localhost:3000/api/product-photo/${p._id}`}
+                                            src={`https://back-o58i.vercel.app/api/product-photo/${p._id}`}
                                             // className="card-img-top"
                                             alt={p.name}
                                             />

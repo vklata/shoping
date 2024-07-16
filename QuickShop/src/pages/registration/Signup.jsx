@@ -19,7 +19,7 @@ let navigate=useNavigate();
             return toast.error("All fields are required")
         }
         try {
-          const res = await axios.post("http://localhost:3000/api/register", {
+          const res = await axios.post("https://back-o58i.vercel.app/api/register", {
             name,
             email,
             password,
@@ -39,51 +39,7 @@ let navigate=useNavigate();
 
   
 
-//     const handlesignup = async (e) => {
-//         e.preventDefault();
-        // if (name === "" || email === "" || password === "") {
-        //     return toast.error("All fields are required")
-        // }
-//         console.log(name,email,password)
-//         toast.success("Sign Up Successfully")
-  
-// const response= await fetch('http://localhost:3000/api/register', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 name,email,password
-//             })
-//         });
-// const json=await response.json()
-// console.log(json);
 
-// if(!json.success){
-//     alert("enter valid")
-
-// }
-// if(json.success){
-//     navigate('/login')
-// }
-
-
-
-
-
-        // .then(response => response.json())
-        // .then(data => {
-        //     console.log(data);
-           
-        // })
-        // .catch(error => {
-        //     console.error('Error:', error);
-        // });
-        
-  
-
-    // }
-      
 
     return (
         <form onSubmit={handlesignup}>

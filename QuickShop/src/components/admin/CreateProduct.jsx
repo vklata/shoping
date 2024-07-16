@@ -20,7 +20,7 @@ const CreateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/get-category");
+      const { data } = await axios.get("https://back-o58i.vercel.app/api/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -49,7 +49,7 @@ const CreateProduct = () => {
       productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.post(
-        "http://localhost:3000/api/create-product",
+        "https://back-o58i.vercel.app/api/create-product",
         // { name, description, price, category, quantity, shipping } 
         productData
       );

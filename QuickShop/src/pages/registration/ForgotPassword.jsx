@@ -20,7 +20,7 @@ export const ForgotPassword = () => {
         return toast.error("All fields are required")
     }
     try {
-        const res = await axios.post("http://localhost:3000/api/forgot-password", {
+        const res = await axios.post("https://back-o58i.vercel.app/api/forgot-password", {
           email,
           newPassword,
           answer,
@@ -35,23 +35,7 @@ export const ForgotPassword = () => {
         console.log(error);
         toast.error("Something went wrong");
       }
-    //   try {
-    //     const res = await axios.post("http://localhost:3000/api/forgot-password", {
-    //       email,
-    //       newPassword,
-    //       answer,
-    //     });
-    //     if (res.data.success) {
-    //     //   toast.success(res.data && res.data.message);
-    //     toast.success("Rest Successfully")
-    //       navigate("/login");
-    //     } else {
-    //       toast.error(res.data.message);
-    //     }
-    //   } catch (error) {
-    //     console.log(error);
-    //     toast.error("Something went wrong");
-    //   }
+   
     };
   return (
     <form onSubmit={handlereset}>

@@ -21,7 +21,7 @@ const Login = () => {
         return toast.error("All fields are required")
     }
       try {
-        const res = await axios.post("http://localhost:3000/api/login", {
+        const res = await axios.post("https://back-o58i.vercel.app/api/login", {
           email,
           password,
         });
@@ -45,45 +45,7 @@ const Login = () => {
         toast.error("Something went wrong");
       }
     };
-//     const [email, setEmail] = useState("");
-//     const [password, setPassword] = useState("");
 
-  
-// let navigate=useNavigate();
-//     const handlelogin = async (e) => {
-//         e.preventDefault();
-        // if (email === "" || password === "") {
-        //     return toast.error("All fields are required")
-        // }
-//         console.log(email,password)
- 
-        
-          
-// const response= await fetch('http://localhost:3000/api/login', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//         email,password
-//     })
-// });
-// const json=await response.json()
-// console.log(json);
-
-// if(!json.success){
-// alert("enter valid")
-//       }
-//     if(json.success){
-        // localStorage.setItem("token",json.token)
-        // console.log(localStorage.getItem("token"))
-
-        // toast.success("Login Successfully")
-//         navigate("/");
-//     }
-    
-    
-//     }
     return (
         <form onSubmit={handlelogin}>
         <div className=' flex justify-center items-center h-screen'>

@@ -20,7 +20,7 @@ const ProductInfo = () => {
     const getProduct = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3000/api/get-product/${params.slug}`
+          `https://back-o58i.vercel.app/api/get-product/${params.slug}`
         );
         setProduct(data?.product);
       } catch (error) {
