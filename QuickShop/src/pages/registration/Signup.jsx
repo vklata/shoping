@@ -19,7 +19,7 @@ let navigate=useNavigate();
             return toast.error("All fields are required")
         }
         try {
-          const res = await axios.post("https://back-o58i.vercel.app/api/register", {
+          const res = await axios.post("https://back-seven-chi.vercel.app/api/register", {
             name,
             email,
             password,

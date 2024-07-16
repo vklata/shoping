@@ -28,7 +28,7 @@ const UserDashboard = () => {
 
     const getOrders = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3000/api/userorder");
+        const { data } = await axios.get("https://back-seven-chi.vercel.app/api/userorder");
         setOrders(data);
         console.log(orders)
       } catch (error) {

@@ -43,7 +43,7 @@ const CartPage = () => {
       const handlePayment = async (e) => {
         e.preventDefault();
         try {
-          const orderRepons = await axios.post("https://back-o58i.vercel.app/api/checkout", {
+          const orderRepons = await axios.post("https://back-seven-chi.vercel.app/api/checkout", {
            
             amount: grantotal,
             // qty: qty,
@@ -74,7 +74,7 @@ const CartPage = () => {
               };
     
               const api = await axios.post(
-                `https://back-o58i.vercel.app/api/verify-payment`,
+                `https://back-seven-chi.vercel.app/api/verify-payment`,
                 paymentData
               );
     
@@ -139,7 +139,7 @@ const CartPage = () => {
                                         <li className="flex py-6 sm:py-6 ">
                                             <div className="flex-shrink-0">
                                                 <img
-                                                 src={`https://back-o58i.vercel.app/api/product-photo/${p._id}`}
+                                                 src={`https://back-seven-chi.vercel.app/api/product-photo/${p._id}`}
                                                     alt={p.name}
                                                     className="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
                                                 />

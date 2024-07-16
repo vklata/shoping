@@ -33,7 +33,7 @@ const Search = () => {
                                                 className="lg:h-60  h-96 w-full"
                                             //     src={image}
                                             //     alt="blog"
-                                            src={`https://back-o58i.vercel.app/api/product-photo/${p._id}`}
+                                            src={`https://back-seven-chi.vercel.app/api/product-photo/${p._id}`}
                                             // className="card-img-top"
                                             alt={p.name}
                                             />
