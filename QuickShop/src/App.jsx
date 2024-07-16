@@ -7,7 +7,6 @@ import {
 
 import Home from './pages/home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Order from './pages/Order/Order';
 import Cart from './pages/cart/CartPage';
 import NoPage from './pages/nopage/NoPage';
 // import MyState from './context/data/myState';
@@ -24,7 +23,7 @@ import { ProtectedRouteForUser } from "./protectedRoute/ProtectedRouteForUser";
 import { ProtectedRouteForAdmin } from "./protectedRoute/ProtectedRouteForAdmin";
 import CreateCategory from './components/admin/CreateCategory';
 import CreateProduct from './components/admin/CreateProduct';
-import UserDetail from './components/admin/UserDetail';
+// import UserDetail from './components/admin/UserDetail';
 import CategoryProduct from './pages/CategoryProduct';
 // import Products from './pages/admin/Products';
 
@@ -42,7 +41,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/order" element={<Order/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/*" element={<NoPage/>} />
         <Route path="/productinfo/:slug" element={<ProductInfo />} />
@@ -79,11 +77,7 @@ function App() {
               <CreateProduct/>
             </ProtectedRouteForAdmin>
           } />
-                     <Route path="/users" element={
-            <ProtectedRouteForAdmin>
-           <UserDetail/>
-            </ProtectedRouteForAdmin>
-          } />
+    
                             <Route path="/allproduct" element={
             <ProtectedRouteForAdmin>
            <AllProducts/>
