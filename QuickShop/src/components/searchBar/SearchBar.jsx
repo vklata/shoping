@@ -15,7 +15,7 @@ const SearchBar = () => {
      e.preventDefault();
      try {
        const { data } = await axios.get(
-         `https://back-o58i.vercel.app/api/search/${values.keyword}`
+         `https://back-seven-chi.vercel.app/api/search/${values.keyword}`
        );
        setValues({ ...values, results: data });
 

@@ -20,7 +20,7 @@ const ProductInfo = () => {
     const getProduct = async () => {
       try {
         const { data } = await axios.get(
-          `https://back-o58i.vercel.app/api/get-product/${params.slug}`
+          `https://back-seven-chi.vercel.app/api/get-product/${params.slug}`
         );
         setProduct(data?.product);
       } catch (error) {
@@ -48,7 +48,7 @@ const ProductInfo = () => {
                                 <div className="">
                                     <img
                                         className=" w-full lg:h-[39em] rounded-lg"
-                                        src={`https://back-o58i.vercel.app/api/product-photo/${product._id}`}
+                                        src={`https://back-seven-chi.vercel.app/api/product-photo/${product._id}`}
                                         // alt={product.name}
                                     />
                                 </div>

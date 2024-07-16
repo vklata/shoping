@@ -20,7 +20,7 @@ const CreateCategory = () => {
       productData.append("name", name);
       // productData.append("photo", photo);
     
-      const {data} = await axios.post("https://back-o58i.vercel.app/api/create-category", 
+      const {data} = await axios.post(`https://back-seven-chi.vercel.app/api/create-category`, 
         productData
       );
 
@@ -42,7 +42,7 @@ const CreateCategory = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const {data} = await axios.get("https://back-o58i.vercel.app/api/get-category");
+      const {data} = await axios.get(`https://back-seven-chi.vercel.app/api/get-category`);
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -61,7 +61,7 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `https://back-o58i.vercel.app/api/update-category/${selected._id}`,
+        `https://back-seven-chi.vercel.app/api/update-category/${selected._id}`,
         { name: updatedName }
       );
       if (data?.success) {
@@ -81,7 +81,7 @@ const CreateCategory = () => {
   const handleDelete = async (pId) => {
     try {
       const { data } = await axios.delete(
-        `https://back-o58i.vercel.app/api/delete-category/${pId}`
+        `https://back-seven-chi.vercel.app/api/delete-category/${pId}`
       );
       if (data?.success) {
         toast.success(`category is deleted`);
