@@ -13,7 +13,7 @@ const AllProducts = () => {
   //getall products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/get-product");
+      const { data } = await axios.get("https://back-o58i.vercel.app/api/get-product");
       setProducts(data.products);
     } catch (error) {
       console.log(error);
@@ -46,7 +46,7 @@ const AllProducts = () => {
                                         <img
                                             className="lg:h-60  h-96 w-full"
                                      
-                                        src={`http://localhost:3000/api/product-photo/${p._id}`}
+                                        src={`https://back-o58i.vercel.app/api/product-photo/${p._id}`}
                                       
                                         alt={p.name}
                                         />

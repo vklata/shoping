@@ -24,7 +24,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/api/get-product/${params.slug}`
+        `https://back-o58i.vercel.app/api/get-product/${params.slug}`
       );
       setName(data.product.name);
       setId(data.product._id);
@@ -45,7 +45,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/get-category");
+      const { data } = await axios.get("https://back-o58i.vercel.app/api/get-category");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -71,7 +71,7 @@ const UpdateProduct = () => {
       photo && productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.put(
-        `http://localhost:3000/api/update-product/${id}`,
+        `https://back-o58i.vercel.app/api/update-product/${id}`,
         productData
       );
       if (data?.success) {
@@ -93,7 +93,7 @@ const UpdateProduct = () => {
       let answer = window.prompt("Are You Sure want to delete this product ? ");
       if (!answer) return;
       const { data } = await axios.delete(
-        `http://localhost:3000/api/delete-product/${id}`
+        `https://back-o58i.vercel.app/api/delete-product/${id}`
       );
       toast.success("Product Deleted Succfully");
       navigate("/allproduct");
@@ -152,7 +152,7 @@ const UpdateProduct = () => {
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`http://localhost:3000/api/product-photo/${id}`}
+                      src={`https://back-o58i.vercel.app/api/product-photo/${id}`}
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"
