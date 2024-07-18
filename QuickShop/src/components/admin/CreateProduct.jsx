@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import { toast } from 'react-toastify';
 import axios from "axios";
+import axiosRetry from "axios-retry";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 const { Option } = Select;
@@ -16,11 +17,12 @@ const CreateProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
+  axiosRetry(axios, { retries: 3 });
 
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`https://back-seven-chi.vercel.app/api/get-category`,{ timeout: 5000});
+      const { data } = await axios.get(`https://back-seven-chi.vercel.app/api/get-category`,{ timeout: 10000});
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -51,7 +53,7 @@ const CreateProduct = () => {
       const { data } = axios.post(
         `https://back-seven-chi.vercel.app/api/create-product`,
         // { name, description, price, category, quantity, shipping } 
-        productData,{ timeout: 5000}
+        productData,{ timeout: 10000}
       );
       if (data?.success) {
         toast.error(data?.message);
