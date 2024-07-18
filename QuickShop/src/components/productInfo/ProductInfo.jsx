@@ -20,7 +20,7 @@ const ProductInfo = () => {
     const getProduct = async () => {
       try {
         const { data } = await axios.get(
-          `https://back-seven-chi.vercel.app/api/get-product/${params.slug}`
+          `https://back-seven-chi.vercel.app/api/get-product/${params.slug}`,{ timeout: 5000}
         );
         setProduct(data?.product);
       } catch (error) {

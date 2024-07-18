@@ -24,7 +24,7 @@ const HomePageProductCard = () => {
       const getAllProducts = async () => {
         try {
           setLoading(true);
-          const { data } = await axios.get(`https://back-seven-chi.vercel.app/api/get-product`);
+    const { data } = await axios.get(`https://back-seven-chi.vercel.app/api/get-product`,{ timeout: 5000});
           setLoading(false);
           setProducts(data.products);
         } catch (error) {

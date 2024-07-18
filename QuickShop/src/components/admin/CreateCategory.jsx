@@ -21,7 +21,7 @@ const CreateCategory = () => {
       // productData.append("photo", photo);
     
       const {data} = await axios.post(`https://back-seven-chi.vercel.app/api/create-category`, 
-        productData
+        productData,{ timeout: 5000}
       );
 
       if (data?.success) {
@@ -42,7 +42,7 @@ const CreateCategory = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const {data} = await axios.get(`https://back-seven-chi.vercel.app/api/get-category`);
+      const {data} = await axios.get(`https://back-seven-chi.vercel.app/api/get-category`,{ timeout: 5000});
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -62,7 +62,7 @@ const CreateCategory = () => {
     try {
       const { data } = await axios.put(
         `https://back-seven-chi.vercel.app/api/update-category/${selected._id}`,
-        { name: updatedName }
+        { name: updatedName },{ timeout: 5000}
       );
       if (data?.success) {
         toast.success(`${updatedName} is updated`);
@@ -81,7 +81,7 @@ const CreateCategory = () => {
   const handleDelete = async (pId) => {
     try {
       const { data } = await axios.delete(
-        `https://back-seven-chi.vercel.app/api/delete-category/${pId}`
+        `https://back-seven-chi.vercel.app/api/delete-category/${pId}`,{ timeout: 5000}
       );
       if (data?.success) {
         toast.success(`category is deleted`);
