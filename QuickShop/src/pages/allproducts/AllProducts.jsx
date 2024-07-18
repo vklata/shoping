@@ -13,7 +13,7 @@ const AllProducts = () => {
   //getall products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-product");
+      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-product",{ timeout: 5000});
       setProducts(data.products);
     } catch (error) {
       console.log(error);

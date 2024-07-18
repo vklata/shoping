@@ -46,11 +46,11 @@ const CartPage = () => {
           const orderRepons = await axios.post("https://back-seven-chi.vercel.app/api/checkout", {
            
             amount: grantotal,
-            // qty: qty,
+
             cartItems: cart,
-            // userShipping: userAddress,
+           
             userId:auth.user._id
-          });
+          },{ timeout: 5000});
           
           console.log(" order response ", orderRepons);
           const { orderId, amount: orderAmount } = orderRepons.data;
@@ -75,7 +75,7 @@ const CartPage = () => {
     
               const api = await axios.post(
                 `https://back-seven-chi.vercel.app/api/verify-payment`,
-                paymentData
+                paymentData,{ timeout: 5000}
               );
     
               console.log("razorpay res ", api.data);

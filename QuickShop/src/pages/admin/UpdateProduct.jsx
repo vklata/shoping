@@ -45,7 +45,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-category");
+      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-category",{ timeout: 5000});
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -72,7 +72,7 @@ const UpdateProduct = () => {
       productData.append("category", category);
       const { data } = axios.put(
         `https://back-seven-chi.vercel.app/api/update-product/${id}`,
-        productData
+        productData,{ timeout: 5000}
       );
       if (data?.success) {
         toast.error(data?.message);
@@ -93,7 +93,7 @@ const UpdateProduct = () => {
       let answer = window.prompt("Are You Sure want to delete this product ? ");
       if (!answer) return;
       const { data } = await axios.delete(
-        `https://back-seven-chi.vercel.app/api/delete-product/${id}`
+        `https://back-seven-chi.vercel.app/api/delete-product/${id}`,{ timeout: 5000}
       );
       toast.success("Product Deleted Succfully");
       navigate("/allproduct");
