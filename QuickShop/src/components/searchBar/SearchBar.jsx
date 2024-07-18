@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { useSearch } from "../../context/search";
 import axios from "axios";
+import axiosRetry from "axios-retry";
 import { useNavigate } from "react-router-dom";
 
 
@@ -10,12 +11,12 @@ const SearchBar = () => {
 //    const [search, setSearch] = useState("");
    const [values, setValues] = useSearch();
    const navigate = useNavigate();
- 
+   axiosRetry(axios, { retries: 3 });
    const handleSubmit = async (e) => {
      e.preventDefault();
      try {
        const { data } = await axios.get(
-         `https://back-seven-chi.vercel.app/api/search/${values.keyword}`,{ timeout: 5000}
+         `https://back-seven-chi.vercel.app/api/search/${values.keyword}`,{ timeout: 10000}
        );
        setValues({ ...values, results: data });
 

@@ -7,6 +7,7 @@ import Layout from "../../components/layout/Layout";
 import { useNavigate } from "react-router-dom";
 // import { AiFillWarning } from "react-icons/ai";
 import axios from "axios";
+import axiosRetry from 'axios-retry';
 import { toast } from "react-toastify"; 
 
 
@@ -14,6 +15,7 @@ const CartPage = () => {
     const[auth,setAuth]=useAuth();
     const[cart,setCart]=useCart();
     const navigate = useNavigate();
+    axiosRetry(axios, { retries: 3 });
     const totalPrice = () => {
         try {
           let total = 0;
@@ -50,7 +52,7 @@ const CartPage = () => {
             cartItems: cart,
            
             userId:auth.user._id
-          },{ timeout: 5000});
+          },{ timeout: 10000});
           
           console.log(" order response ", orderRepons);
           const { orderId, amount: orderAmount } = orderRepons.data;
@@ -75,7 +77,7 @@ const CartPage = () => {
     
               const api = await axios.post(
                 `https://back-seven-chi.vercel.app/api/verify-payment`,
-                paymentData,{ timeout: 5000}
+                paymentData,{ timeout: 10000}
               );
     
               console.log("razorpay res ", api.data);

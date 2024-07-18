@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import axiosRetry from "axios-retry";
 import { useCart } from "../context/cart";
 import { toast } from "react-toastify";
 const CategoryProduct = () => {
@@ -10,14 +11,14 @@ const CategoryProduct = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const[cart,setCart]=useCart();
-
+  axiosRetry(axios, { retries: 3 });
   useEffect(() => {
     if (params?.slug) getPrductsByCat();
   }, [params?.slug]);
   const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(
-        `https://back-seven-chi.vercel.app/api/product-category/${params.slug}`,{ timeout: 5000}
+        `https://back-seven-chi.vercel.app/api/product-category/${params.slug}`,{ timeout: 10000}
       );
       setProducts(data?.products);
       setCategory(data?.category);

@@ -5,6 +5,7 @@ import { Link,useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { useAuth } from "../../context/auth";
 import axios from "axios";
+import axiosRetry from "axios-retry";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ const Login = () => {
   
     const navigate = useNavigate();
     // const location = useLocation();
-  
+    axiosRetry(axios, { retries: 3 });
     // form function
     const handlelogin = async (e) => {
       e.preventDefault();
@@ -24,7 +25,7 @@ const Login = () => {
         const res = await axios.post("https://back-seven-chi.vercel.app/api/login", {
           email,
           password,
-        },{ timeout: 5000});
+        },{ timeout: 10000});
         if (res.data.success) {
         //   toast.success(res.data && res.data.message);
           localStorage.setItem("token",res.data.token)

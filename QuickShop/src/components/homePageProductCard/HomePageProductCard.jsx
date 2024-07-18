@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import axiosRetry from "axios-retry";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/cart";
 import { toast } from "react-toastify";
@@ -21,10 +22,11 @@ const HomePageProductCard = () => {
 
 
       //get products
+      axiosRetry(axios, { retries: 3 });
       const getAllProducts = async () => {
         try {
           setLoading(true);
-    const { data } = await axios.get(`https://back-seven-chi.vercel.app/api/get-product`,{ timeout: 5000});
+    const { data } = await axios.get(`https://back-seven-chi.vercel.app/api/get-product`,{ timeout: 10000});
           setLoading(false);
           setProducts(data.products);
         } catch (error) {

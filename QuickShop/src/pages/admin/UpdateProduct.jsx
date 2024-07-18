@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../../components/layout/Layout";
 import { toast } from 'react-toastify';
 import axios from "axios";
+import axiosRetry from "axios-retry";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 const { Option } = Select;
@@ -19,12 +20,12 @@ const UpdateProduct = () => {
   const [photo, setPhoto] = useState("");
   const [id, setId] = useState("");
   // const[select,setSelect]=useState(null);
-
+  axiosRetry(axios, { retries: 3 });
   //get single product
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `https://back-seven-chi.vercel.app/api/get-product/${params.slug}`
+        `https://back-seven-chi.vercel.app/api/get-product/${params.slug}`,{timeout:10000}
       );
       setName(data.product.name);
       setId(data.product._id);
@@ -45,7 +46,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-category",{ timeout: 5000});
+      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-category",{ timeout: 10000});
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -72,7 +73,7 @@ const UpdateProduct = () => {
       productData.append("category", category);
       const { data } = axios.put(
         `https://back-seven-chi.vercel.app/api/update-product/${id}`,
-        productData,{ timeout: 5000}
+        productData,{ timeout: 10000}
       );
       if (data?.success) {
         toast.error(data?.message);
@@ -93,7 +94,7 @@ const UpdateProduct = () => {
       let answer = window.prompt("Are You Sure want to delete this product ? ");
       if (!answer) return;
       const { data } = await axios.delete(
-        `https://back-seven-chi.vercel.app/api/delete-product/${id}`,{ timeout: 5000}
+        `https://back-seven-chi.vercel.app/api/delete-product/${id}`,{ timeout: 10000}
       );
       toast.success("Product Deleted Succfully");
       navigate("/allproduct");

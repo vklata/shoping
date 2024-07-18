@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/auth";
 import { toast } from "react-toastify";
 import axios from "axios";
+import axiosRetry from "axios-retry";
 
 const UserDashboard = () => {
     const [auth, setAuth] = useAuth();
@@ -13,7 +14,7 @@ const UserDashboard = () => {
     const [address, setAddress] = useState("");
     const [userOrder, setUserOrder] = useState([]);
 
-  
+    axiosRetry(axios, { retries: 3 });
     //get user data
     useEffect(() => {
       const { email, name, phone, address } = auth?.user;
@@ -28,7 +29,7 @@ const UserDashboard = () => {
 
     const getOrders = async () => {
       try {
-        const { data } = await axios.get("https://back-seven-chi.vercel.app/api/userorder",{ timeout: 5000});
+        const { data } = await axios.get("https://back-seven-chi.vercel.app/api/userorder",{ timeout: 10000});
         setOrders(data);
         console.log(orders)
       } catch (error) {

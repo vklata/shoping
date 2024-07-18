@@ -3,6 +3,7 @@ import Layout from "../../components/layout/Layout";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import axiosRetry from "axios-retry";
 import { useCart } from "../../context/cart";
 import { toast } from "react-toastify";
 const ProductInfo = () => {
@@ -17,10 +18,11 @@ const ProductInfo = () => {
       if (params?.slug) getProduct();
     }, [params?.slug]);
     //getProduct
+    axiosRetry(axios, { retries: 3 });
     const getProduct = async () => {
       try {
         const { data } = await axios.get(
-          `https://back-seven-chi.vercel.app/api/get-product/${params.slug}`,{ timeout: 5000}
+          `https://back-seven-chi.vercel.app/api/get-product/${params.slug}`,{ timeout: 10000}
         );
         setProduct(data?.product);
       } catch (error) {

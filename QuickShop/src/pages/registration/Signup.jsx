@@ -4,6 +4,7 @@ import { Link,useNavigate} from 'react-router-dom'
 // import myContext from '../../context/data/myContext';
 import { toast } from 'react-toastify';
 import axios from "axios";
+import axiosRetry from "axios-retry";
 
 function Signup() {
 
@@ -12,7 +13,7 @@ let navigate=useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [answer, setAnswer] = useState("");
-
+    axiosRetry(axios, { retries: 3 });
     const handlesignup = async (e) => {
         e.preventDefault();
         if (name === "" || email === "" || password === ""|| answer==="") {
@@ -25,7 +26,7 @@ let navigate=useNavigate();
             password,
             answer,
       
-          },{ timeout: 5000});
+          },{ timeout: 10000});
           if (res.data.success) {
             navigate("/login");
           } else {

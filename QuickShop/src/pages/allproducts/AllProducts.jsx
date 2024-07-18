@@ -3,17 +3,18 @@ import Layout from "../../components/layout/Layout";
 import { useState ,useEffect} from "react";
 import { toast } from 'react-toastify';
 import axios from "axios";
+import axiosRetry from "axios-retry";
 import { useCart } from "../../context/cart";
 
 const AllProducts = () => {
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const[cart,setCart]=useCart();
-
+    axiosRetry(axios, { retries: 3 });
   //getall products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-product",{ timeout: 5000});
+      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-product",{ timeout: 10000});
       setProducts(data.products);
     } catch (error) {
       console.log(error);

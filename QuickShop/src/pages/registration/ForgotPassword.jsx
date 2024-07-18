@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link,useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import axiosRetry from 'axios-retry';
 // import Layout from '../../components/layout/Layout'
 
 export const ForgotPassword = () => {
@@ -12,7 +13,7 @@ export const ForgotPassword = () => {
   
     const navigate = useNavigate();
     // const location = useLocation();
-  
+    axiosRetry(axios, { retries: 3 });
     // form function
     const handlereset = async (e) => {
       e.preventDefault();
@@ -25,7 +26,7 @@ export const ForgotPassword = () => {
           newPassword,
           answer,
     
-        },{ timeout: 5000});
+        },{ timeout: 10000});
         if (res && res.data.success) {
           navigate("/login");
         } else {
