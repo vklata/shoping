@@ -25,7 +25,7 @@ export const ForgotPassword = () => {
           newPassword,
           answer,
     
-        });
+        },{ timeout: 5000});
         if (res && res.data.success) {
           navigate("/login");
         } else {

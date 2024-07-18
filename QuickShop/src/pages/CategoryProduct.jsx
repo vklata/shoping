@@ -17,7 +17,7 @@ const CategoryProduct = () => {
   const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(
-        `https://back-seven-chi.vercel.app/api/product-category/${params.slug}`
+        `https://back-seven-chi.vercel.app/api/product-category/${params.slug}`,{ timeout: 5000}
       );
       setProducts(data?.products);
       setCategory(data?.category);

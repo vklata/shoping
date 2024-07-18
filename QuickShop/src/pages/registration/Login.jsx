@@ -24,7 +24,7 @@ const Login = () => {
         const res = await axios.post("https://back-seven-chi.vercel.app/api/login", {
           email,
           password,
-        });
+        },{ timeout: 5000});
         if (res.data.success) {
         //   toast.success(res.data && res.data.message);
           localStorage.setItem("token",res.data.token)

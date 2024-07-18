@@ -25,7 +25,7 @@ let navigate=useNavigate();
             password,
             answer,
       
-          });
+          },{ timeout: 5000});
           if (res.data.success) {
             navigate("/login");
           } else {
