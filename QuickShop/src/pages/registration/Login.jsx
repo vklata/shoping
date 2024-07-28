@@ -22,7 +22,7 @@ const Login = () => {
         return toast.error("All fields are required")
     }
       try {
-        const res = await axios.post("https://back-seven-chi.vercel.app/api/login", {
+        const res = await axios.post("https://back-6-2qac.onrender.com/api/login", {
           email,
           password,
         },{ timeout: 10000});

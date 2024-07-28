@@ -25,7 +25,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `https://back-seven-chi.vercel.app/api/get-product/${params.slug}`,{timeout:10000}
+        `https://back-6-2qac.onrender.com/api/get-product/${params.slug}`,{timeout:10000}
       );
       setName(data.product.name);
       setId(data.product._id);
@@ -46,7 +46,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-category",{ timeout: 10000});
+      const { data } = await axios.get("https://back-6-2qac.onrender.com/api/get-category",{ timeout: 10000});
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -72,7 +72,7 @@ const UpdateProduct = () => {
       photo && productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.put(
-        `https://back-seven-chi.vercel.app/api/update-product/${id}`,
+        `https://back-6-2qac.onrender.com/api/update-product/${id}`,
         productData,{ timeout: 10000}
       );
       if (data?.success) {
@@ -94,7 +94,7 @@ const UpdateProduct = () => {
       let answer = window.prompt("Are You Sure want to delete this product ? ");
       if (!answer) return;
       const { data } = await axios.delete(
-        `https://back-seven-chi.vercel.app/api/delete-product/${id}`,{ timeout: 10000}
+        `https://back-6-2qac.onrender.com/api/delete-product/${id}`,{ timeout: 10000}
       );
       toast.success("Product Deleted Succfully");
       navigate("/allproduct");
@@ -153,7 +153,7 @@ const UpdateProduct = () => {
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`https://back-seven-chi.vercel.app/api/product-photo/${id}`}
+                      src={`https://back-6-2qac.onrender.com/api/product-photo/${id}`}
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"

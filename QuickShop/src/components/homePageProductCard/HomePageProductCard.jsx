@@ -26,7 +26,7 @@ const HomePageProductCard = () => {
       const getAllProducts = async () => {
         try {
           setLoading(true);
-    const { data } = await axios.get(`https://back-seven-chi.vercel.app/api/get-product`,{ timeout: 10000});
+    const { data } = await axios.get(`https://back-6-2qac.onrender.com/api/get-product`,{ timeout: 10000});
           setLoading(false);
           setProducts(data.products);
         } catch (error) {
@@ -62,7 +62,7 @@ const HomePageProductCard = () => {
                                                 className="lg:h-60  h-96 w-full"
                                             //     src={image}
                                             //     alt="blog"
-                                            src={`https://back-seven-chi.vercel.app/api/product-photo/${p._id}`}
+                                            src={`https://back-6-2qac.onrender.com/api/product-photo/${p._id}`}
                                             // className="card-img-top"
                                             alt={p.name}
                                             />

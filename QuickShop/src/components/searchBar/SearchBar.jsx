@@ -16,7 +16,7 @@ const SearchBar = () => {
      e.preventDefault();
      try {
        const { data } = await axios.get(
-         `https://back-seven-chi.vercel.app/api/search/${values.keyword}`,{ timeout: 10000}
+         `https://back-6-2qac.onrender.com/api/search/${values.keyword}`,{ timeout: 10000}
        );
        setValues({ ...values, results: data });
 

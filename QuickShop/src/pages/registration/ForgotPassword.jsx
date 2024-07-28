@@ -21,7 +21,7 @@ export const ForgotPassword = () => {
         return toast.error("All fields are required")
     }
     try {
-        const res = await axios.post("https://back-seven-chi.vercel.app/api/forgot-password", {
+        const res = await axios.post("https://back-6-2qac.onrender.com/api/forgot-password", {
           email,
           newPassword,
           answer,

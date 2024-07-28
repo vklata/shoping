@@ -29,7 +29,7 @@ const UserDashboard = () => {
 
     const getOrders = async () => {
       try {
-        const { data } = await axios.get("https://back-seven-chi.vercel.app/api/userorder",{ timeout: 10000});
+        const { data } = await axios.get("https://back-6-2qac.onrender.com/api/userorder",{ timeout: 10000});
         setOrders(data);
         console.log(orders)
       } catch (error) {

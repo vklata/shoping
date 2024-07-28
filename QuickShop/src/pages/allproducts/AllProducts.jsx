@@ -14,7 +14,7 @@ const AllProducts = () => {
   //getall products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("https://back-seven-chi.vercel.app/api/get-product",{ timeout: 10000});
+      const { data } = await axios.get("https://back-6-2qac.onrender.com/api/get-product",{ timeout: 10000});
       setProducts(data.products);
     } catch (error) {
       console.log(error);
@@ -47,7 +47,7 @@ const AllProducts = () => {
                                         <img
                                             className="lg:h-60  h-96 w-full"
                                      
-                                        src={`https://back-seven-chi.vercel.app/api/product-photo/${p._id}`}
+                                        src={`https://back-6-2qac.onrender.com/api/product-photo/${p._id}`}
                                       
                                         alt={p.name}
                                         />

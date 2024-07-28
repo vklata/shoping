@@ -22,7 +22,7 @@ const CreateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`https://back-seven-chi.vercel.app/api/get-category`,{ timeout: 10000});
+      const { data } = await axios.get(`https://back-6-2qac.onrender.com/api/get-category`,{ timeout: 10000});
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -51,7 +51,7 @@ const CreateProduct = () => {
       productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.post(
-        `https://back-seven-chi.vercel.app/api/create-product`,
+        `https://back-6-2qac.onrender.com/api/create-product`,
         // { name, description, price, category, quantity, shipping } 
         productData,{ timeout: 10000}
       );
